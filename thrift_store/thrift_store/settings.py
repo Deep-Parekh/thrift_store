@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'thrift_store.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': os.path.join(BASE_DIR, 'thrift_store_db'),
+        'NAME': 'thrift_store_db',
         'HOST': '127.0.0.1',            # Hosted on local machine
         'PORT': 27017,              
     }
