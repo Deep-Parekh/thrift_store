@@ -85,9 +85,14 @@ WSGI_APPLICATION = 'thrift_store.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'thrift_store_db',
-        'HOST': '127.0.0.1',            # Hosted on local machine
-        'PORT': 27017,              
+        'NAME': 'ts_db',
+        'CLIENT': {
+            'host': 'mongodb+srv://ts:tsmongodb@ts-0.bq3jp.mongodb.net/ts_db?retryWrites=true&w=majority',
+            'port': 27017,
+            'username': 'ts',
+            'password': 'tsmongodb',
+        }
+        
     }
 }
 
