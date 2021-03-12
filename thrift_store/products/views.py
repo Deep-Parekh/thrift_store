@@ -5,7 +5,7 @@ from rest_framework.parsers import JSONParser
 from rest_framework import status
 
 from products.models import Product
-from product.serializers import ProductSerializer
+from products.serializers import ProductSerializer
 from rest_framework.decorators import api_view
 
 # GET list of tutorials, POST a new tutorial, DELETE all tutorials
