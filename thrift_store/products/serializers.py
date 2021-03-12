@@ -8,8 +8,8 @@ class ProductSerializer(serializers.ModelSerializer):
             'id',
             'title',
             'description',
-            'seller_id',
-            'price',
-            'pictures',
-            'posted_on',
+            # 'seller_id',
+            # 'price',
+            # 'pictures',
+            # 'posted_on',
         )

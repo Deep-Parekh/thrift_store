@@ -1,3 +1,3 @@
 Thrift Store
 
-E-commerce website built using Django REST Framework and MongoDB 
+Online thrift store built using Django REST Framework and MongoDB
