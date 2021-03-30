@@ -2,22 +2,22 @@ from django.shortcuts import render
 
 from django.http.response import JsonResponse
 from rest_framework.parsers import JSONParser
+from rest_framework.decorators import api_view
 from rest_framework import status
 
 from products.models import Product
 from products.serializers import ProductSerializer
-from rest_framework.decorators import api_view
 
 # GET list of tutorials, POST a new tutorial, DELETE all tutorials
 @api_view(['GET', 'POST', 'DELETE'])
 def product_list(request):
-    # retrieve all products/find by title from MongoDB database
+    # retrieve all products/find by name from MongoDB database
     if request.method == 'GET':
         products = Product.objects.all()
-        title = request.GET.get('title', None)
+        name = request.GET.get('name', None)
 
-        if title is not None:
-            products = products.filter(title__icontains=title)
+        if name is not None:
+            products = products.filter(name__icontains=name)
 
         products_serializer = ProductSerializer(products, many=True)
 
@@ -71,6 +71,7 @@ def product_detail(request, pk):
     except Product.DoesNotExist:
         return JsonResponse({'message': 'The product does not exist'}, status=status.HTTP_404_NOT_FOUND)
 
+"""
 # GET all published products
 @api_view(['GET'])
 def product_list_posted(request):
@@ -80,3 +81,4 @@ def product_list_posted(request):
     if request.method == 'GET':
         products_serializer = ProductSerializer(products, many=True)
         return JsonResponse(products_serializer.data, safe=False)
+"""
